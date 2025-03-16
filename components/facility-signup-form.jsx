@@ -160,18 +160,18 @@ export default function FacilitySignupForm() {
           <Tabs defaultValue="basic" className="w-full">
             {/* Updated Tabs List with mobile improvements */}
             <TabsList
-              className="flex overflow-x-auto touch-pan-x whitespace-nowrap w-full p-1 md:p-2 gap-1 md:gap-2 scrollbar-thin scrollbar-thumb-rounded scrollbar-thumb-gray-300 pl-2 pr-2 md:px-0"
+              className="flex overflow-x-auto touch-pan-x whitespace-nowrap w-full p-1 md:p-2 gap-1 md:gap-2 scrollbar-thin scrollbar-thumb-rounded scrollbar-thumb-gray-300  pr-2 md:px-0 pl-20"
               dir="ltr" // Force left-to-right direction for consistent scrolling
             >
               <TabsTrigger
                 value="basic"
-                className="px-3 py-1 md:px-4 md:py-2 flex-shrink-0 text-sm md:text-base"
+                className="px-3 py-1  md:px-4 md:py-2 flex-shrink-0 text-sm md:text-base"
               >
                 {language === "en" ? "Basic Info" : "معلومات أساسية"}
               </TabsTrigger>
               <TabsTrigger
                 value="location"
-                className="px-3 py-1 md:px-4 md:py-2 flex-shrink-0 text-sm md:text-base"
+                className="px-3 py-1 md:px-4 pl-10 md:py-2 flex-shrink-0 text-sm md:text-base"
               >
                 {language === "en" ? "Location" : "الموقع"}
               </TabsTrigger>
