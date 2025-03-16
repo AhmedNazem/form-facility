@@ -143,10 +143,9 @@ export default function BasicInfoForm({ form, language, formOptions }) {
                       <SelectItem
                         key={category.id}
                         value={category.id.toString()}
+                        className="bg-white w-[200px] hover:bg-gray-300 ml-2"
                       >
-                        {language === "en"
-                          ? category.name_en
-                          : category.name_ar}
+                        {language === "en" ? category.name : category.name}
                       </SelectItem>
                     ))}
                   </SelectContent>
