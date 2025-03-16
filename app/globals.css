@@ -68,3 +68,19 @@
   --tw-space-x-reverse: 1;
 }
 
+.tabs-container {
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    #000 10px,
+    #000 calc(100% - 10px),
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    #000 10px,
+    #000 calc(100% - 10px),
+    transparent 100%
+  );
+}

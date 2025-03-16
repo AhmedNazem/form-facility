@@ -158,79 +158,64 @@ export default function FacilitySignupForm() {
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
           {/* Tabs */}
           <Tabs defaultValue="basic" className="w-full">
-            {/* Tabs List */}
-            <TabsList className="flex overflow-x-auto space-x-2 w-full px-2">
-              <TabsTrigger value="basic" className="px-4 py-2 flex-shrink-0">
-                {language === "en" ? "Basic Info" : "معلومات أساسية"}
-              </TabsTrigger>
-              <TabsTrigger value="location" className="px-4 py-2 flex-shrink-0">
-                {language === "en" ? "Location" : "الموقع"}
-              </TabsTrigger>
-              <TabsTrigger
-                value="operational"
-                className="px-4 py-2 flex-shrink-0"
-              >
-                {language === "en" ? "Operations" : "العمليات"}
-              </TabsTrigger>
-              <TabsTrigger value="capacity" className="px-4 py-2 flex-shrink-0">
-                {language === "en" ? "Capacity" : "السعة"}
-              </TabsTrigger>
-              <TabsTrigger value="social" className="px-4 py-2 flex-shrink-0">
-                {language === "en" ? "Social Media" : "وسائل التواصل"}
-              </TabsTrigger>
-              <TabsTrigger
-                value="advantages"
-                className="px-4 py-2 flex-shrink-0"
-              >
-                {language === "en" ? "Advantages" : "المزايا"}
-              </TabsTrigger>
-              <TabsTrigger value="payment" className="px-4 py-2 flex-shrink-0">
-                {language === "en" ? "Payment" : "الدفع"}
-              </TabsTrigger>
-            </TabsList>
+            {/* Tabs List Container with scroll indicators */}
+            <div className="tabs-container overflow-x-auto pb-2 md:overflow-visible relative">
+              <TabsList className="flex w-full px-2 gap-2 py-1">
+                <TabsTrigger
+                  value="basic"
+                  className="flex-1 md:flex-initial px-3 py-2 text-sm md:px-4 md:py-2 md:text-base transition-all"
+                >
+                  {language === "en" ? "Basic Info" : "معلومات أساسية"}
+                </TabsTrigger>
+                <TabsTrigger
+                  value="location"
+                  className="flex-1 md:flex-initial px-3 py-2 text-sm md:px-4 md:py-2 md:text-base transition-all"
+                >
+                  {language === "en" ? "Location" : "الموقع"}
+                </TabsTrigger>
+                <TabsTrigger
+                  value="amenities"
+                  className="flex-1 md:flex-initial px-3 py-2 text-sm md:px-4 md:py-2 md:text-base transition-all"
+                >
+                  {language === "en" ? "Amenities" : "المرافق"}
+                </TabsTrigger>
+                <TabsTrigger
+                  value="pricing"
+                  className="flex-1 md:flex-initial px-3 py-2 text-sm md:px-4 md:py-2 md:text-base transition-all"
+                >
+                  {language === "en" ? "Pricing" : "التسعير"}
+                </TabsTrigger>
+              </TabsList>
+            </div>
 
-            {/* Tabs Content */}
-            <TabsContent value="basic" className="mt-6">
-              <BasicInfoForm
-                form={form}
-                language={language}
-                formOptions={formOptions}
-              />
-            </TabsContent>
-            <TabsContent value="location" className="mt-6">
-              <LocationForm form={form} language={language} />
-            </TabsContent>
-            <TabsContent value="operational" className="mt-6">
-              <OperationalDetailsForm
-                form={form}
-                language={language}
-                formOptions={formOptions}
-              />
-            </TabsContent>
-            <TabsContent value="capacity" className="mt-6">
-              <CapacityForm
-                form={form}
-                language={language}
-                formOptions={formOptions}
-              />
-            </TabsContent>
-            <TabsContent value="social" className="mt-6">
-              <SocialMediaForm form={form} language={language} />
-            </TabsContent>
-            <TabsContent value="advantages" className="mt-6">
-              <AdvantagesForm
-                form={form}
-                language={language}
-                formOptions={formOptions}
-              />
-            </TabsContent>
-            <TabsContent value="payment" className="mt-6">
-              <PaymentForm
-                form={form}
-                language={language}
-                formOptions={formOptions}
-              />
-            </TabsContent>
+            {/* Tabs Content Area */}
+            <div className="relative min-h-[400px] md:min-h-0">
+              <TabsContent value="basic" className="mt-4 md:mt-6 px-2 md:px-0">
+                <BasicInfoForm
+                  form={form}
+                  language={language}
+                  formOptions={formOptions}
+                />
+              </TabsContent>
+              <TabsContent
+                value="location"
+                className="mt-4 md:mt-6 px-2 md:px-0"
+              >
+                <LocationForm form={form} language={language} />
+              </TabsContent>
+              <TabsContent
+                value="amenities"
+                className="mt-4 md:mt-6 px-2 md:px-0"
+              >
+                <AmenitiesForm form={form} language={language} />
+              </TabsContent>
+              <TabsContent
+                value="pricing"
+                className="mt-4 md:mt-6 px-2 md:px-0"
+              >
+                <PricingForm form={form} language={language} />
+              </TabsContent>
+            </div>
           </Tabs>
 
           {/* Submit Button */}
