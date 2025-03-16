@@ -155,115 +155,91 @@ export default function FacilitySignupForm() {
 
       {/* Form */}
       <Form {...form}>
-        <form
-          onSubmit={form.handleSubmit(onSubmit)}
-          className="space-y-6 md:space-y-8 w-full max-w-full"
-        >
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
           {/* Tabs */}
-          <Tabs defaultValue="basic" className="w-full">
-            {/* Tabs List - Improved responsive design */}
-            <TabsList className="flex overflow-x-auto whitespace-nowrap w-full p-1 sm:p-2 gap-1 sm:gap-2 scrollbar-thin scrollbar-thumb-rounded scrollbar-thumb-gray-300">
+          <Tabs defaultValue="basic" className="w-full ">
+            {/* Tabs List - Made responsive with flexbox and scroll */}
+            <TabsList className="flex overflow-x-auto whitespace-nowrap w-full p-1 md:p-2 gap-1 md:gap-2 scrollbar-thin scrollbar-thumb-rounded scrollbar-thumb-gray-300">
               <TabsTrigger
                 value="basic"
-                className="px-2 py-1 sm:px-3 md:px-4 md:py-2 flex-shrink-0 text-xs sm:text-sm md:text-base"
+                className="px-2 py-1 md:px-4 md:py-2 flex-shrink-0 text-sm md:text-base"
               >
                 {language === "en" ? "Basic Info" : "معلومات أساسية"}
               </TabsTrigger>
               <TabsTrigger
                 value="location"
-                className="px-2 py-1 sm:px-3 md:px-4 md:py-2 flex-shrink-0 text-xs sm:text-sm md:text-base"
+                className="px-2 py-1 md:px-4 md:py-2 flex-shrink-0 text-sm md:text-base"
               >
                 {language === "en" ? "Location" : "الموقع"}
               </TabsTrigger>
               <TabsTrigger
                 value="operational"
-                className="px-2 py-1 sm:px-3 md:px-4 md:py-2 flex-shrink-0 text-xs sm:text-sm md:text-base"
+                className="px-2 py-1 md:px-4 md:py-2 flex-shrink-0 text-sm md:text-base"
               >
                 {language === "en" ? "Operations" : "العمليات"}
               </TabsTrigger>
               <TabsTrigger
                 value="capacity"
-                className="px-2 py-1 sm:px-3 md:px-4 md:py-2 flex-shrink-0 text-xs sm:text-sm md:text-base"
+                className="px-2 py-1 md:px-4 md:py-2 flex-shrink-0 text-sm md:text-base"
               >
                 {language === "en" ? "Capacity" : "السعة"}
               </TabsTrigger>
               <TabsTrigger
                 value="social"
-                className="px-2 py-1 sm:px-3 md:px-4 md:py-2 flex-shrink-0 text-xs sm:text-sm md:text-base"
+                className="px-2 py-1 md:px-4 md:py-2 flex-shrink-0 text-sm md:text-base"
               >
                 {language === "en" ? "Social Media" : "وسائل التواصل"}
               </TabsTrigger>
               <TabsTrigger
                 value="advantages"
-                className="px-2 py-1 sm:px-3 md:px-4 md:py-2 flex-shrink-0 text-xs sm:text-sm md:text-base"
+                className="px-2 py-1 md:px-4 md:py-2 flex-shrink-0 text-sm md:text-base"
               >
                 {language === "en" ? "Advantages" : "المزايا"}
               </TabsTrigger>
               <TabsTrigger
                 value="payment"
-                className="px-2 py-1 sm:px-3 md:px-4 md:py-2 flex-shrink-0 text-xs sm:text-sm md:text-base"
+                className="px-2 py-1 md:px-4 md:py-2 flex-shrink-0 text-sm md:text-base"
               >
                 {language === "en" ? "Payment" : "الدفع"}
               </TabsTrigger>
             </TabsList>
 
-            {/* Tabs Content with improved responsive margins */}
-            <TabsContent
-              value="basic"
-              className="mt-3 sm:mt-4 md:mt-6 px-2 sm:px-3 md:px-4"
-            >
+            {/* Tabs Content */}
+            <TabsContent value="basic" className="mt-4 md:mt-6">
               <BasicInfoForm
                 form={form}
                 language={language}
                 formOptions={formOptions}
               />
             </TabsContent>
-            <TabsContent
-              value="location"
-              className="mt-3 sm:mt-4 md:mt-6 px-2 sm:px-3 md:px-4"
-            >
+            <TabsContent value="location" className="mt-4 md:mt-6">
               <LocationForm form={form} language={language} />
             </TabsContent>
-            <TabsContent
-              value="operational"
-              className="mt-3 sm:mt-4 md:mt-6 px-2 sm:px-3 md:px-4"
-            >
+            <TabsContent value="operational" className="mt-4 md:mt-6">
               <OperationalDetailsForm
                 form={form}
                 language={language}
                 formOptions={formOptions}
               />
             </TabsContent>
-            <TabsContent
-              value="capacity"
-              className="mt-3 sm:mt-4 md:mt-6 px-2 sm:px-3 md:px-4"
-            >
+            <TabsContent value="capacity" className="mt-4 md:mt-6">
               <CapacityForm
                 form={form}
                 language={language}
                 formOptions={formOptions}
               />
             </TabsContent>
-            <TabsContent
-              value="social"
-              className="mt-3 sm:mt-4 md:mt-6 px-2 sm:px-3 md:px-4"
-            >
+            <TabsContent value="social" className="mt-4 md:mt-6">
               <SocialMediaForm form={form} language={language} />
             </TabsContent>
-            <TabsContent
-              value="advantages"
-              className="mt-3 sm:mt-4 md:mt-6 px-2 sm:px-3 md:px-4"
-            >
+            <TabsContent value="advantages" className="mt-4 md:mt-6">
               <AdvantagesForm
                 form={form}
                 language={language}
                 formOptions={formOptions}
               />
             </TabsContent>
-            <TabsContent
-              value="payment"
-              className="mt-3 sm:mt-4 md:mt-6 px-2 sm:px-3 md:px-4"
-            >
+            <TabsContent value="payment" className="mt-4 md:mt-6">
               <PaymentForm
                 form={form}
                 language={language}
@@ -272,16 +248,14 @@ export default function FacilitySignupForm() {
             </TabsContent>
           </Tabs>
 
-          {/* Submit Button - Improved responsive design */}
-          <div className="flex justify-center mt-6 sm:mt-8 px-2 sm:px-0">
+          {/* Submit Button */}
+          <div className="flex justify-center mt-8">
             <Button
               type="submit"
               disabled={submitting}
-              className="w-full sm:w-4/5 md:w-3/5 lg:w-2/5 text-white bg-blue-500 p-3 md:p-4 text-sm sm:text-base"
+              className="w-full md:w-auto text-white bg-blue-500 p-4"
             >
-              {submitting && (
-                <Loader2 className="mr-2 h-3 w-3 sm:h-4 sm:w-4 animate-spin" />
-              )}
+              {submitting && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
               {language === "en" ? "Submit Registration" : "تقديم التسجيل"}
             </Button>
           </div>
