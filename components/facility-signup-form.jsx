@@ -159,32 +159,47 @@ export default function FacilitySignupForm() {
           {/* Tabs */}
           <Tabs defaultValue="basic" className="w-full">
             {/* Tabs List */}
-            <TabsList className="flex overflow-x-auto space-x-2 w-full px-2">
-              <TabsTrigger value="basic" className="px-4 py-2 flex-shrink-0">
+            <TabsList className="flex overflow-x-auto space-x-2 w-full px-2 sm:flex-col sm:space-x-0 sm:space-y-2">
+              <TabsTrigger
+                value="basic"
+                className="px-4 py-2 flex-shrink-0 sm:w-full"
+              >
                 {language === "en" ? "Basic Info" : "معلومات أساسية"}
               </TabsTrigger>
-              <TabsTrigger value="location" className="px-4 py-2 flex-shrink-0">
+              <TabsTrigger
+                value="location"
+                className="px-4 py-2 flex-shrink-0 sm:w-full"
+              >
                 {language === "en" ? "Location" : "الموقع"}
               </TabsTrigger>
               <TabsTrigger
                 value="operational"
-                className="px-4 py-2 flex-shrink-0"
+                className="px-4 py-2 flex-shrink-0 sm:w-full"
               >
                 {language === "en" ? "Operations" : "العمليات"}
               </TabsTrigger>
-              <TabsTrigger value="capacity" className="px-4 py-2 flex-shrink-0">
+              <TabsTrigger
+                value="capacity"
+                className="px-4 py-2 flex-shrink-0 sm:w-full"
+              >
                 {language === "en" ? "Capacity" : "السعة"}
               </TabsTrigger>
-              <TabsTrigger value="social" className="px-4 py-2 flex-shrink-0">
+              <TabsTrigger
+                value="social"
+                className="px-4 py-2 flex-shrink-0 sm:w-full"
+              >
                 {language === "en" ? "Social Media" : "وسائل التواصل"}
               </TabsTrigger>
               <TabsTrigger
                 value="advantages"
-                className="px-4 py-2 flex-shrink-0"
+                className="px-4 py-2 flex-shrink-0 sm:w-full"
               >
                 {language === "en" ? "Advantages" : "المزايا"}
               </TabsTrigger>
-              <TabsTrigger value="payment" className="px-4 py-2 flex-shrink-0">
+              <TabsTrigger
+                value="payment"
+                className="px-4 py-2 flex-shrink-0 sm:w-full"
+              >
                 {language === "en" ? "Payment" : "الدفع"}
               </TabsTrigger>
             </TabsList>
