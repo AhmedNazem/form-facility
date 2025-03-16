@@ -142,43 +142,48 @@ export default function FacilitySignupForm() {
 
   return (
     <div className={language === "ar" ? "rtl" : "ltr"}>
+      {/* Language Switcher */}
       <div className="relative mb-4">
         <div className={language === "ar" ? "ltr" : "rtl"}>
           <LanguageSwitcher
             language={language}
             onLanguageChange={(lang) => setLanguage(lang)}
-            className="flex items-center gap-2 absolute right-0"
+            className="flex items-center gap-2 absolute right-0 md:relative md:right-auto"
           />
         </div>
       </div>
 
+      {/* Form */}
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+          {/* Tabs */}
           <Tabs defaultValue="basic" className="w-full">
-            <TabsList className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 w-full">
-              <TabsTrigger value="basic">
+            {/* Tabs List */}
+            <TabsList className="flex overflow-x-auto md:grid md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-7 w-full">
+              <TabsTrigger value="basic" className="whitespace-nowrap">
                 {language === "en" ? "Basic Info" : "معلومات أساسية"}
               </TabsTrigger>
-              <TabsTrigger value="location">
+              <TabsTrigger value="location" className="whitespace-nowrap">
                 {language === "en" ? "Location" : "الموقع"}
               </TabsTrigger>
-              <TabsTrigger value="operational">
+              <TabsTrigger value="operational" className="whitespace-nowrap">
                 {language === "en" ? "Operations" : "العمليات"}
               </TabsTrigger>
-              <TabsTrigger value="capacity">
+              <TabsTrigger value="capacity" className="whitespace-nowrap">
                 {language === "en" ? "Capacity" : "السعة"}
               </TabsTrigger>
-              <TabsTrigger value="social">
+              <TabsTrigger value="social" className="whitespace-nowrap">
                 {language === "en" ? "Social Media" : "وسائل التواصل"}
               </TabsTrigger>
-              <TabsTrigger value="advantages">
+              <TabsTrigger value="advantages" className="whitespace-nowrap">
                 {language === "en" ? "Advantages" : "المزايا"}
               </TabsTrigger>
-              <TabsTrigger value="payment">
+              <TabsTrigger value="payment" className="whitespace-nowrap">
                 {language === "en" ? "Payment" : "الدفع"}
               </TabsTrigger>
             </TabsList>
 
+            {/* Tabs Content */}
             <TabsContent value="basic" className="mt-6">
               <BasicInfoForm
                 form={form}
@@ -228,6 +233,7 @@ export default function FacilitySignupForm() {
             </TabsContent>
           </Tabs>
 
+          {/* Submit Button */}
           <div className="flex justify-end mt-8">
             <Button
               type="submit"

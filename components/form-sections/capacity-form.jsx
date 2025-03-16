@@ -43,8 +43,12 @@ export default function CapacityForm({ form, language, formOptions }) {
   return (
     <Card>
       <CardContent className="pt-6">
+        {/* Title */}
         <h3 className="text-lg font-medium mb-4">{translations.title}</h3>
-        <div className="grid gap-6 md:grid-cols-3">
+
+        {/* Number Inputs (Rooms, Seats, Guests) */}
+        <div className="grid gap-4 md:grid-cols-3">
+          {/* Number of Rooms */}
           <FormField
             control={form.control}
             name="capacity_and_capabilities.number_of_rooms"
@@ -68,6 +72,7 @@ export default function CapacityForm({ form, language, formOptions }) {
             )}
           />
 
+          {/* Number of Seats */}
           <FormField
             control={form.control}
             name="capacity_and_capabilities.number_of_seats"
@@ -91,6 +96,7 @@ export default function CapacityForm({ form, language, formOptions }) {
             )}
           />
 
+          {/* Number of Guests */}
           <FormField
             control={form.control}
             name="capacity_and_capabilities.number_of_guests"
@@ -115,7 +121,9 @@ export default function CapacityForm({ form, language, formOptions }) {
           />
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
+        {/* Room Options and Room Equipments */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+          {/* Room Options */}
           <FormField
             control={form.control}
             name="capacity_and_capabilities.room_options"
@@ -128,7 +136,6 @@ export default function CapacityForm({ form, language, formOptions }) {
                   </FormDescription>
                 </div>
                 <div className="flex flex-col gap-3">
-                  {/* Column container */}
                   {formOptions?.room_options?.map((option) => (
                     <FormField
                       key={option.id}
@@ -136,13 +143,13 @@ export default function CapacityForm({ form, language, formOptions }) {
                       name="capacity_and_capabilities.room_options"
                       render={({ field }) => (
                         <FormItem
-                          className={`flex items-center space-x-2 w-full group ${
+                          className={`flex items-center w-full space-x-3 ${
                             language === "ar" ? "flex-row-reverse" : ""
                           }`}
                         >
                           <FormControl>
                             <Checkbox
-                              className="h-5 w-5 rounded-md border-2 data-[state=checked]:bg-primary "
+                              className="h-5 w-5 rounded-md border-2 data-[state=checked]:bg-primary"
                               checked={field.value?.includes(option.id)}
                               onCheckedChange={(checked) => {
                                 const current = field.value || [];
@@ -155,13 +162,15 @@ export default function CapacityForm({ form, language, formOptions }) {
                               }}
                             />
                           </FormControl>
-                          <FormLabel className="font-normal text-sm flex-1 leading-tight space-y-0.5 px-3">
-                            <span className="block font-medium">
-                              {option.name}
-                            </span>
-                            <span className="block text-muted-foreground text-xs">
-                              {option.description}
-                            </span>
+                          <FormLabel className="font-normal flex-1">
+                            <div className="flex flex-col">
+                              <span>{option.name}</span>
+                              {option.description && (
+                                <span className="text-muted-foreground text-sm mt-0.5">
+                                  {option.description}
+                                </span>
+                              )}
+                            </div>
                           </FormLabel>
                         </FormItem>
                       )}
@@ -173,6 +182,7 @@ export default function CapacityForm({ form, language, formOptions }) {
             )}
           />
 
+          {/* Room Equipments */}
           <FormField
             control={form.control}
             name="capacity_and_capabilities.room_equipments"

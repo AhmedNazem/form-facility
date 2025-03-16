@@ -93,8 +93,12 @@ export default function OperationalDetailsForm({
   return (
     <Card>
       <CardContent className="pt-6">
+        {/* Title */}
         <h3 className="text-lg font-medium mb-4">{translations.title}</h3>
+
+        {/* Form Fields */}
         <div className="space-y-6">
+          {/* Always Open Checkbox */}
           <FormField
             control={form.control}
             name="operational_details.is_always_open"
@@ -120,6 +124,7 @@ export default function OperationalDetailsForm({
             )}
           />
 
+          {/* Working Hours Section */}
           {!form.watch("operational_details.is_always_open") && (
             <div className="space-y-4">
               <div className="flex items-center justify-between">
@@ -139,8 +144,12 @@ export default function OperationalDetailsForm({
               </div>
 
               {working_hour?.map((_, index) => (
-                <div key={index} className="grid grid-cols-12 gap-4 items-end">
-                  <div className="col-span-4">
+                <div
+                  key={index}
+                  className="grid grid-cols-1 sm:grid-cols-12 gap-4 items-end"
+                >
+                  {/* Day of Week */}
+                  <div className="sm:col-span-4">
                     <FormField
                       control={form.control}
                       name={`operational_details.working_hour.${index}.day_of_week`}
@@ -182,7 +191,8 @@ export default function OperationalDetailsForm({
                     />
                   </div>
 
-                  <div className="col-span-3">
+                  {/* Start Time */}
+                  <div className="sm:col-span-3">
                     <FormField
                       control={form.control}
                       name={`operational_details.working_hour.${index}.start_time`}
@@ -198,7 +208,8 @@ export default function OperationalDetailsForm({
                     />
                   </div>
 
-                  <div className="col-span-3">
+                  {/* End Time */}
+                  <div className="sm:col-span-3">
                     <FormField
                       control={form.control}
                       name={`operational_details.working_hour.${index}.end_time`}
@@ -214,7 +225,8 @@ export default function OperationalDetailsForm({
                     />
                   </div>
 
-                  <div className="col-span-2">
+                  {/* Remove Button */}
+                  <div className="sm:col-span-2">
                     <Button
                       type="button"
                       variant="ghost"
@@ -231,6 +243,7 @@ export default function OperationalDetailsForm({
             </div>
           )}
 
+          {/* Reservation Types */}
           <FormField
             control={form.control}
             name="operational_details.reservation_types"
@@ -243,8 +256,6 @@ export default function OperationalDetailsForm({
                   </FormDescription>
                 </div>
                 <div className="flex flex-col gap-3">
-                  {" "}
-                  {/* Added column container */}
                   {formOptions?.reservation_types?.map((type) => (
                     <FormField
                       key={type.id}
@@ -252,8 +263,6 @@ export default function OperationalDetailsForm({
                       name="operational_details.reservation_types"
                       render={({ field }) => (
                         <FormItem className="flex flex-row items-start space-x-3 space-y-0 w-full">
-                          {" "}
-                          {/* Added w-full */}
                           <FormControl>
                             <Checkbox
                               checked={field.value?.includes(type.id)}
@@ -269,8 +278,6 @@ export default function OperationalDetailsForm({
                             />
                           </FormControl>
                           <FormLabel className="font-normal flex-1">
-                            {" "}
-                            {/* Added flex-1 */}
                             {type.name}
                           </FormLabel>
                         </FormItem>
@@ -283,6 +290,7 @@ export default function OperationalDetailsForm({
             )}
           />
 
+          {/* Seasonal Working Hour Change */}
           <FormField
             control={form.control}
             name="operational_details.seasonal_working_hour_change"
@@ -308,6 +316,7 @@ export default function OperationalDetailsForm({
             )}
           />
 
+          {/* Cancellation Policy */}
           <FormField
             control={form.control}
             name="operational_details.cancellation_policy"

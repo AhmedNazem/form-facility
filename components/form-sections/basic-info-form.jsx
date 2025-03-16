@@ -52,8 +52,12 @@ export default function BasicInfoForm({ form, language, formOptions }) {
   return (
     <Card>
       <CardContent className="pt-6">
+        {/* Title */}
         <h3 className="text-lg font-medium mb-4">{translations.title}</h3>
-        <div className="grid gap-6 md:grid-cols-2">
+
+        {/* Form Fields */}
+        <div className="grid gap-4 md:grid-cols-2">
+          {/* Facility Name */}
           <FormField
             control={form.control}
             name="name"
@@ -76,6 +80,7 @@ export default function BasicInfoForm({ form, language, formOptions }) {
             )}
           />
 
+          {/* Email */}
           <FormField
             control={form.control}
             name="email"
@@ -95,6 +100,7 @@ export default function BasicInfoForm({ form, language, formOptions }) {
             )}
           />
 
+          {/* Phone Number */}
           <FormField
             control={form.control}
             name="phone_number"
@@ -110,6 +116,7 @@ export default function BasicInfoForm({ form, language, formOptions }) {
             )}
           />
 
+          {/* Category */}
           <FormField
             control={form.control}
             name="category"
@@ -140,12 +147,6 @@ export default function BasicInfoForm({ form, language, formOptions }) {
                         {language === "en"
                           ? category.name_en
                           : category.name_ar}
-                        <li
-                          className="w-[200px] bg-white hover:bg-gray-300"
-                          key={category.id}
-                        >
-                          {category.name}{" "}
-                        </li>
                       </SelectItem>
                     ))}
                   </SelectContent>
@@ -156,11 +157,12 @@ export default function BasicInfoForm({ form, language, formOptions }) {
             )}
           />
 
+          {/* Video */}
           <FormField
             control={form.control}
             name="video"
             render={({ field }) => (
-              <FormItem className="md:col-span-2">
+              <FormItem className="col-span-2">
                 <FormLabel>{translations.video}</FormLabel>
                 <FormControl>
                   <Input

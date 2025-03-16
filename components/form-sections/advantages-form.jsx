@@ -10,7 +10,6 @@ import {
 } from "@/components/ui/form";
 import { Card, CardContent } from "@/components/ui/card";
 import { Checkbox } from "@/components/ui/checkbox";
-import { Switch } from "@/components/ui/switch";
 
 export default function AdvantagesForm({ form, language, formOptions }) {
   const translations = {
@@ -54,6 +53,7 @@ export default function AdvantagesForm({ form, language, formOptions }) {
       <CardContent className="pt-6">
         <h3 className="text-lg font-medium mb-4">{translations.title}</h3>
 
+        {/* Special Discount Section */}
         <FormField
           control={form.control}
           name="have_special_discount_to_companies"
@@ -79,7 +79,9 @@ export default function AdvantagesForm({ form, language, formOptions }) {
           )}
         />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {/* Grid for Competitive Advantages, Client Types, Extra Services, etc. */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {/* Competitive Advantages */}
           <FormField
             control={form.control}
             name="competitive_advantages"
@@ -91,41 +93,35 @@ export default function AdvantagesForm({ form, language, formOptions }) {
                     {translations.competitiveAdvantagesDesc}
                   </FormDescription>
                 </div>
-                <div className="grid grid-cols-1 gap-2">
+                <div className="space-y-2">
                   {formOptions?.competitive_advantages?.map((advantage) => (
                     <FormField
                       key={advantage.id}
                       control={form.control}
                       name="competitive_advantages"
-                      render={({ field }) => {
-                        return (
-                          <FormItem
-                            key={advantage.id}
-                            className="flex flex-row items-start space-x-3 space-y-0"
-                          >
-                            <FormControl>
-                              <Checkbox
-                                checked={field.value?.includes(advantage.id)} // Checks if the advantage.id is in the array
-                                onCheckedChange={(checked) => {
-                                  // Update the array of selected advantages based on whether the checkbox is checked or unchecked
-                                  const current = field.value || []; // Get the current value (array)
-                                  const updated = checked
-                                    ? [...current, advantage.id] // If checked, add the ID
-                                    : current.filter(
-                                        (value) => value !== advantage.id
-                                      ); // If unchecked, remove the ID
-                                  field.onChange(updated); // Update the field value with the new array
-                                }}
-                              />
-                            </FormControl>
-                            <FormLabel className="font-normal">
-                              {language === "en"
-                                ? advantage.name
-                                : advantage.name}
-                            </FormLabel>
-                          </FormItem>
-                        );
-                      }}
+                      render={({ field }) => (
+                        <FormItem className="flex items-center space-x-2">
+                          <FormControl>
+                            <Checkbox
+                              checked={field.value?.includes(advantage.id)}
+                              onCheckedChange={(checked) => {
+                                const current = field.value || [];
+                                const updated = checked
+                                  ? [...current, advantage.id]
+                                  : current.filter(
+                                      (value) => value !== advantage.id
+                                    );
+                                field.onChange(updated);
+                              }}
+                            />
+                          </FormControl>
+                          <FormLabel className="font-normal">
+                            {language === "en"
+                              ? advantage.name
+                              : advantage.name}
+                          </FormLabel>
+                        </FormItem>
+                      )}
                     />
                   ))}
                 </div>
@@ -134,6 +130,7 @@ export default function AdvantagesForm({ form, language, formOptions }) {
             )}
           />
 
+          {/* Client Types */}
           <FormField
             control={form.control}
             name="client_types"
@@ -145,38 +142,33 @@ export default function AdvantagesForm({ form, language, formOptions }) {
                     {translations.clientTypesDesc}
                   </FormDescription>
                 </div>
-                <div className="grid grid-cols-1 gap-2">
+                <div className="space-y-2">
                   {formOptions?.client_types?.map((type) => (
                     <FormField
                       key={type.id}
                       control={form.control}
                       name="client_types"
-                      render={({ field }) => {
-                        return (
-                          <FormItem
-                            key={type.id}
-                            className="flex flex-row items-start space-x-3 space-y-0"
-                          >
-                            <FormControl>
-                              <Checkbox
-                                checked={field.value?.includes(type.id)}
-                                onCheckedChange={(checked) => {
-                                  const current = field.value || [];
-                                  const updated = checked
-                                    ? [...current, type.id]
-                                    : current.filter(
-                                        (value) => value !== type.id
-                                      );
-                                  field.onChange(updated);
-                                }}
-                              />
-                            </FormControl>
-                            <FormLabel className="font-normal">
-                              {language === "en" ? type.name : type.name}
-                            </FormLabel>
-                          </FormItem>
-                        );
-                      }}
+                      render={({ field }) => (
+                        <FormItem className="flex items-center space-x-2">
+                          <FormControl>
+                            <Checkbox
+                              checked={field.value?.includes(type.id)}
+                              onCheckedChange={(checked) => {
+                                const current = field.value || [];
+                                const updated = checked
+                                  ? [...current, type.id]
+                                  : current.filter(
+                                      (value) => value !== type.id
+                                    );
+                                field.onChange(updated);
+                              }}
+                            />
+                          </FormControl>
+                          <FormLabel className="font-normal">
+                            {language === "en" ? type.name : type.name}
+                          </FormLabel>
+                        </FormItem>
+                      )}
                     />
                   ))}
                 </div>
@@ -185,6 +177,7 @@ export default function AdvantagesForm({ form, language, formOptions }) {
             )}
           />
 
+          {/* Extra Services */}
           <FormField
             control={form.control}
             name="extra_services"
@@ -196,38 +189,33 @@ export default function AdvantagesForm({ form, language, formOptions }) {
                     {translations.extraServicesDesc}
                   </FormDescription>
                 </div>
-                <div className="grid grid-cols-1 gap-2">
+                <div className="space-y-2">
                   {formOptions?.extra_services?.map((service) => (
                     <FormField
                       key={service.id}
                       control={form.control}
                       name="extra_services"
-                      render={({ field }) => {
-                        return (
-                          <FormItem
-                            key={service.id}
-                            className="flex flex-row items-start space-x-3 space-y-0"
-                          >
-                            <FormControl>
-                              <Checkbox
-                                checked={field.value?.includes(service.id)}
-                                onCheckedChange={(checked) => {
-                                  const current = field.value || [];
-                                  const updated = checked
-                                    ? [...current, service.id]
-                                    : current.filter(
-                                        (value) => value !== service.id
-                                      );
-                                  field.onChange(updated);
-                                }}
-                              />
-                            </FormControl>
-                            <FormLabel className="font-normal">
-                              {language === "en" ? service.name : service.name}
-                            </FormLabel>
-                          </FormItem>
-                        );
-                      }}
+                      render={({ field }) => (
+                        <FormItem className="flex items-center space-x-2">
+                          <FormControl>
+                            <Checkbox
+                              checked={field.value?.includes(service.id)}
+                              onCheckedChange={(checked) => {
+                                const current = field.value || [];
+                                const updated = checked
+                                  ? [...current, service.id]
+                                  : current.filter(
+                                      (value) => value !== service.id
+                                    );
+                                field.onChange(updated);
+                              }}
+                            />
+                          </FormControl>
+                          <FormLabel className="font-normal">
+                            {language === "en" ? service.name : service.name}
+                          </FormLabel>
+                        </FormItem>
+                      )}
                     />
                   ))}
                 </div>
@@ -236,6 +224,7 @@ export default function AdvantagesForm({ form, language, formOptions }) {
             )}
           />
 
+          {/* Language Support */}
           <FormField
             control={form.control}
             name="language_supports"
@@ -247,42 +236,37 @@ export default function AdvantagesForm({ form, language, formOptions }) {
                     {translations.languageSupportsDesc}
                   </FormDescription>
                 </div>
-                <div className="grid grid-cols-1 gap-2">
+                <div className="space-y-2">
                   {formOptions?.language_supports?.map((language_support) => (
                     <FormField
                       key={language_support.id}
                       control={form.control}
                       name="language_supports"
-                      render={({ field }) => {
-                        return (
-                          <FormItem
-                            key={language_support.id}
-                            className="flex flex-row items-start space-x-3 space-y-0"
-                          >
-                            <FormControl>
-                              <Checkbox
-                                checked={field.value?.includes(
-                                  language_support.id
-                                )}
-                                onCheckedChange={(checked) => {
-                                  const current = field.value || [];
-                                  const updated = checked
-                                    ? [...current, language_support.id]
-                                    : current.filter(
-                                        (value) => value !== language_support.id
-                                      );
-                                  field.onChange(updated);
-                                }}
-                              />
-                            </FormControl>
-                            <FormLabel className="font-normal">
-                              {language === "en"
-                                ? language_support.name
-                                : language_support.name}
-                            </FormLabel>
-                          </FormItem>
-                        );
-                      }}
+                      render={({ field }) => (
+                        <FormItem className="flex items-center space-x-2">
+                          <FormControl>
+                            <Checkbox
+                              checked={field.value?.includes(
+                                language_support.id
+                              )}
+                              onCheckedChange={(checked) => {
+                                const current = field.value || [];
+                                const updated = checked
+                                  ? [...current, language_support.id]
+                                  : current.filter(
+                                      (value) => value !== language_support.id
+                                    );
+                                field.onChange(updated);
+                              }}
+                            />
+                          </FormControl>
+                          <FormLabel className="font-normal">
+                            {language === "en"
+                              ? language_support.name
+                              : language_support.name}
+                          </FormLabel>
+                        </FormItem>
+                      )}
                     />
                   ))}
                 </div>
@@ -291,6 +275,7 @@ export default function AdvantagesForm({ form, language, formOptions }) {
             )}
           />
 
+          {/* Cultural Shows */}
           <FormField
             control={form.control}
             name="cultural_shows"
@@ -302,38 +287,33 @@ export default function AdvantagesForm({ form, language, formOptions }) {
                     {translations.culturalShowsDesc}
                   </FormDescription>
                 </div>
-                <div className="grid grid-cols-1 gap-2">
+                <div className="space-y-2">
                   {formOptions?.cultural_shows?.map((show) => (
                     <FormField
                       key={show.id}
                       control={form.control}
                       name="cultural_shows"
-                      render={({ field }) => {
-                        return (
-                          <FormItem
-                            key={show.id}
-                            className="flex flex-row items-start space-x-3 space-y-0"
-                          >
-                            <FormControl>
-                              <Checkbox
-                                checked={field.value?.includes(show.id)}
-                                onCheckedChange={(checked) => {
-                                  const current = field.value || [];
-                                  const updated = checked
-                                    ? [...current, show.id]
-                                    : current.filter(
-                                        (value) => value !== show.id
-                                      );
-                                  field.onChange(updated);
-                                }}
-                              />
-                            </FormControl>
-                            <FormLabel className="font-normal">
-                              {language === "en" ? show.name : show.name}
-                            </FormLabel>
-                          </FormItem>
-                        );
-                      }}
+                      render={({ field }) => (
+                        <FormItem className="flex items-center space-x-2">
+                          <FormControl>
+                            <Checkbox
+                              checked={field.value?.includes(show.id)}
+                              onCheckedChange={(checked) => {
+                                const current = field.value || [];
+                                const updated = checked
+                                  ? [...current, show.id]
+                                  : current.filter(
+                                      (value) => value !== show.id
+                                    );
+                                field.onChange(updated);
+                              }}
+                            />
+                          </FormControl>
+                          <FormLabel className="font-normal">
+                            {language === "en" ? show.name : show.name}
+                          </FormLabel>
+                        </FormItem>
+                      )}
                     />
                   ))}
                 </div>
