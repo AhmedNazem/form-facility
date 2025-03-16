@@ -157,49 +157,34 @@ export default function FacilitySignupForm() {
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
           {/* Tabs */}
-          <Tabs defaultValue="basic" className="w-full gap-4">
+          <Tabs defaultValue="basic" className="w-full">
             {/* Tabs List */}
-            <TabsList className="flex overflow-x-auto gap-2 md:grid md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-7 w-full">
-              <TabsTrigger
-                value="basic"
-                className="whitespace-nowrap flex-none"
-              >
+            <TabsList className="flex overflow-x-auto space-x-2 w-full px-2">
+              <TabsTrigger value="basic" className="px-4 py-2 flex-shrink-0">
                 {language === "en" ? "Basic Info" : "معلومات أساسية"}
               </TabsTrigger>
-              <TabsTrigger
-                value="location"
-                className="whitespace-nowrap flex-none"
-              >
+              <TabsTrigger value="location" className="px-4 py-2 flex-shrink-0">
                 {language === "en" ? "Location" : "الموقع"}
               </TabsTrigger>
               <TabsTrigger
                 value="operational"
-                className="whitespace-nowrap flex-none"
+                className="px-4 py-2 flex-shrink-0"
               >
                 {language === "en" ? "Operations" : "العمليات"}
               </TabsTrigger>
-              <TabsTrigger
-                value="capacity"
-                className="whitespace-nowrap flex-none"
-              >
+              <TabsTrigger value="capacity" className="px-4 py-2 flex-shrink-0">
                 {language === "en" ? "Capacity" : "السعة"}
               </TabsTrigger>
-              <TabsTrigger
-                value="social"
-                className="whitespace-nowrap flex-none"
-              >
+              <TabsTrigger value="social" className="px-4 py-2 flex-shrink-0">
                 {language === "en" ? "Social Media" : "وسائل التواصل"}
               </TabsTrigger>
               <TabsTrigger
                 value="advantages"
-                className="whitespace-nowrap flex-none"
+                className="px-4 py-2 flex-shrink-0"
               >
                 {language === "en" ? "Advantages" : "المزايا"}
               </TabsTrigger>
-              <TabsTrigger
-                value="payment"
-                className="whitespace-nowrap flex-none"
-              >
+              <TabsTrigger value="payment" className="px-4 py-2 flex-shrink-0">
                 {language === "en" ? "Payment" : "الدفع"}
               </TabsTrigger>
             </TabsList>
@@ -212,11 +197,9 @@ export default function FacilitySignupForm() {
                 formOptions={formOptions}
               />
             </TabsContent>
-
             <TabsContent value="location" className="mt-6">
               <LocationForm form={form} language={language} />
             </TabsContent>
-
             <TabsContent value="operational" className="mt-6">
               <OperationalDetailsForm
                 form={form}
@@ -224,7 +207,6 @@ export default function FacilitySignupForm() {
                 formOptions={formOptions}
               />
             </TabsContent>
-
             <TabsContent value="capacity" className="mt-6">
               <CapacityForm
                 form={form}
@@ -232,11 +214,9 @@ export default function FacilitySignupForm() {
                 formOptions={formOptions}
               />
             </TabsContent>
-
             <TabsContent value="social" className="mt-6">
               <SocialMediaForm form={form} language={language} />
             </TabsContent>
-
             <TabsContent value="advantages" className="mt-6">
               <AdvantagesForm
                 form={form}
@@ -244,7 +224,6 @@ export default function FacilitySignupForm() {
                 formOptions={formOptions}
               />
             </TabsContent>
-
             <TabsContent value="payment" className="mt-6">
               <PaymentForm
                 form={form}
@@ -255,11 +234,11 @@ export default function FacilitySignupForm() {
           </Tabs>
 
           {/* Submit Button */}
-          <div className="flex justify-end mt-8">
+          <div className="flex justify-center mt-8">
             <Button
               type="submit"
               disabled={submitting}
-              className="w-full md:w-auto text-white"
+              className="w-full md:w-auto text-white bg-blue-500 p-4"
             >
               {submitting && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
               {language === "en" ? "Submit Registration" : "تقديم التسجيل"}
