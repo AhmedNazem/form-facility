@@ -204,7 +204,7 @@ export default function FacilitySignupForm() {
               </TabsTrigger>
             </TabsList>
 
-            {/* Tabs Content (remain unchanged) */}
+            {/* Tabs Content */}
             <TabsContent value="basic" className="mt-6">
               <BasicInfoForm
                 form={form}
@@ -212,7 +212,46 @@ export default function FacilitySignupForm() {
                 formOptions={formOptions}
               />
             </TabsContent>
-            {/* ... other tab content sections ... */}
+
+            <TabsContent value="location" className="mt-6">
+              <LocationForm form={form} language={language} />
+            </TabsContent>
+
+            <TabsContent value="operational" className="mt-6">
+              <OperationalDetailsForm
+                form={form}
+                language={language}
+                formOptions={formOptions}
+              />
+            </TabsContent>
+
+            <TabsContent value="capacity" className="mt-6">
+              <CapacityForm
+                form={form}
+                language={language}
+                formOptions={formOptions}
+              />
+            </TabsContent>
+
+            <TabsContent value="social" className="mt-6">
+              <SocialMediaForm form={form} language={language} />
+            </TabsContent>
+
+            <TabsContent value="advantages" className="mt-6">
+              <AdvantagesForm
+                form={form}
+                language={language}
+                formOptions={formOptions}
+              />
+            </TabsContent>
+
+            <TabsContent value="payment" className="mt-6">
+              <PaymentForm
+                form={form}
+                language={language}
+                formOptions={formOptions}
+              />
+            </TabsContent>
           </Tabs>
 
           {/* Submit Button */}
