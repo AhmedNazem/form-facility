@@ -157,54 +157,57 @@ export default function FacilitySignupForm() {
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
           {/* Tabs */}
-          <Tabs defaultValue="basic" className="w-full ">
-            {/* Tabs List - Made responsive with flexbox and scroll */}
-            <TabsList className="flex overflow-x-auto whitespace-nowrap w-full p-1 md:p-2 gap-1 md:gap-2 scrollbar-thin scrollbar-thumb-rounded scrollbar-thumb-gray-300">
+          <Tabs defaultValue="basic" className="w-full">
+            {/* Updated Tabs List with mobile improvements */}
+            <TabsList
+              className="flex overflow-x-auto touch-pan-x whitespace-nowrap w-full p-1 md:p-2 gap-1 md:gap-2 scrollbar-thin scrollbar-thumb-rounded scrollbar-thumb-gray-300 pl-2 pr-2 md:px-0"
+              dir="ltr" // Force left-to-right direction for consistent scrolling
+            >
               <TabsTrigger
                 value="basic"
-                className="px-2 py-1 md:px-4 md:py-2 flex-shrink-0 text-sm md:text-base"
+                className="px-3 py-1 md:px-4 md:py-2 flex-shrink-0 text-sm md:text-base"
               >
                 {language === "en" ? "Basic Info" : "معلومات أساسية"}
               </TabsTrigger>
               <TabsTrigger
                 value="location"
-                className="px-2 py-1 md:px-4 md:py-2 flex-shrink-0 text-sm md:text-base"
+                className="px-3 py-1 md:px-4 md:py-2 flex-shrink-0 text-sm md:text-base"
               >
                 {language === "en" ? "Location" : "الموقع"}
               </TabsTrigger>
               <TabsTrigger
                 value="operational"
-                className="px-2 py-1 md:px-4 md:py-2 flex-shrink-0 text-sm md:text-base"
+                className="px-3 py-1 md:px-4 md:py-2 flex-shrink-0 text-sm md:text-base"
               >
                 {language === "en" ? "Operations" : "العمليات"}
               </TabsTrigger>
               <TabsTrigger
                 value="capacity"
-                className="px-2 py-1 md:px-4 md:py-2 flex-shrink-0 text-sm md:text-base"
+                className="px-3 py-1 md:px-4 md:py-2 flex-shrink-0 text-sm md:text-base"
               >
                 {language === "en" ? "Capacity" : "السعة"}
               </TabsTrigger>
               <TabsTrigger
                 value="social"
-                className="px-2 py-1 md:px-4 md:py-2 flex-shrink-0 text-sm md:text-base"
+                className="px-3 py-1 md:px-4 md:py-2 flex-shrink-0 text-sm md:text-base"
               >
                 {language === "en" ? "Social Media" : "وسائل التواصل"}
               </TabsTrigger>
               <TabsTrigger
                 value="advantages"
-                className="px-2 py-1 md:px-4 md:py-2 flex-shrink-0 text-sm md:text-base"
+                className="px-3 py-1 md:px-4 md:py-2 flex-shrink-0 text-sm md:text-base"
               >
                 {language === "en" ? "Advantages" : "المزايا"}
               </TabsTrigger>
               <TabsTrigger
                 value="payment"
-                className="px-2 py-1 md:px-4 md:py-2 flex-shrink-0 text-sm md:text-base"
+                className="px-3 py-1 md:px-4 md:py-2 flex-shrink-0 text-sm md:text-base"
               >
                 {language === "en" ? "Payment" : "الدفع"}
               </TabsTrigger>
             </TabsList>
 
-            {/* Tabs Content */}
+            {/* Tabs Content (No changes needed here) */}
             <TabsContent value="basic" className="mt-4 md:mt-6">
               <BasicInfoForm
                 form={form}
